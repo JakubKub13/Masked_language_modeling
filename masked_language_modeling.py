@@ -10,3 +10,18 @@ from transformers import pipeline
 
 data_frame = pd.read_csv('bbc_text_cls.csv')
 data_frame.head()
+
+labels = set(data_frame['labels'])
+print(labels)
+
+#Pick a label
+label = 'business'
+
+texts = data_frame[data_frame['labels'] == label]['text']
+texts.head()
+
+np.random.seed(1234)
+
+# Randomly choose a document
+i = np.random.choice(texts.shape[0])
+doc = texts.iloc[i]
