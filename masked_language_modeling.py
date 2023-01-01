@@ -25,3 +25,9 @@ np.random.seed(1234)
 # Randomly choose a document
 i = np.random.choice(texts.shape[0])
 doc = texts.iloc[i]
+
+print(textwrap.fill(doc, replace_whitespace=False, fix_sentence_endings=True))
+
+masked_language_model = pipeline('fill-mask')
+
+
