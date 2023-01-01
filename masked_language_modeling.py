@@ -40,3 +40,20 @@ pprint(masked_language_model(text))
 
 # Exercise: Write a function that automatically masks and replaces words
 # In a whole document. Might choose which words to replace based on statistic for example TF-IDF
+def mask_and_replace_words(document: str, mask_char: str) -> str:
+    # Import and initialize the masked language model
+    masked_language_model = pipeline('fill-mask')
+    
+    # Tokenize the document
+    tokens = nltk.word_tokenize(document)
+    
+    # Use the masked language model to predict the masked tokens
+    masked_tokens = []
+    for token in tokens:
+        masked_token = masked_language_model(f"{mask_char} {token}")[0]['token']
+        masked_tokens.append(masked_token)
+    
+    # Rejoin the tokens into a single string
+    masked_document = ' '.join(masked_tokens)
+    
+    return masked_document
