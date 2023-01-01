@@ -3,6 +3,7 @@
 #!pip install transformers
 
 import numpy as np
+import nltk
 import pandas as pd
 import textwrap
 from pprint import pprint
@@ -41,6 +42,7 @@ pprint(masked_language_model(text))
 # Exercise: Write a function that automatically masks and replaces words
 # In a whole document. Might choose which words to replace based on statistic for example TF-IDF
 def mask_and_replace_words(document: str, mask_char: str) -> str:
+    nltk.download('punkt')
     # Import and initialize the masked language model
     masked_language_model = pipeline('fill-mask')
     
