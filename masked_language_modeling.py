@@ -41,26 +41,26 @@ pprint(masked_language_model(text))
 
 # Exercise: Write a function that automatically masks and replaces words
 # In a whole document. Might choose which words to replace based on statistic for example TF-IDF
-def mask_and_replace_words(document: str, mask_char: str) -> str:
-    nltk.download('punkt')
-    # Import and initialize the masked language model
-    masked_language_model = pipeline('fill-mask')
+# def mask_and_replace_words(document: str, mask_char: str) -> str:
+#     nltk.download('punkt')
+#     # Import and initialize the masked language model
+#     masked_language_model = pipeline('fill-mask')
     
-    # Tokenize the document
-    tokens = nltk.word_tokenize(document)
+#     # Tokenize the document
+#     tokens = nltk.word_tokenize(document)
     
-    # Use the masked language model to predict the masked tokens
-    masked_tokens = []
-    for token in tokens:
-        masked_token = masked_language_model(f"{mask_char} {token}")[0]['token']
-        masked_tokens.append(masked_token)
+#     # Use the masked language model to predict the masked tokens
+#     masked_tokens = []
+#     for token in tokens:
+#         masked_token = masked_language_model(f"{mask_char} {token}")[0]['token']
+#         masked_tokens.append(masked_token)
     
-    # Rejoin the tokens into a single string
-    masked_document = ' '.join(masked_tokens)
+#     # Rejoin the tokens into a single string
+#     masked_document = ' '.join(masked_tokens)
     
-    return masked_document
+#     return masked_document
 
-# Test the function with a sample document
-document = "Shares in train and plane-making giant Bombardier have fallen to 10 year low following the departure of is chief executive"
-masked_document = mask_and_replace_words(document, '<mask>')
-print(masked_document)
+# # Test the function with a sample document
+# document = "Shares in train and plane-making giant Bombardier have fallen to 10 year low following the departure of is chief executive"
+# masked_document = mask_and_replace_words(document, '<mask>')
+# print(masked_document)
