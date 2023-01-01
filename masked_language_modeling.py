@@ -30,4 +30,13 @@ print(textwrap.fill(doc, replace_whitespace=False, fix_sentence_endings=True))
 
 masked_language_model = pipeline('fill-mask')
 
+masked_language_model('Bombardier chief to leave <mask>')
+text = 'Shares in <mask> and plane-making giant Bombardier have fallen to 10 year low following the departure of is chief executive'
+masked_language_model(text)
+text = 'Shares in train and plane-making giant Bombardier have fallen to 10 year low following the departure of is chief <mask>'
+pprint(masked_language_model(text))
+text = 'Shares in train and plane-making giant Bombardier have fallen to 10 year low following the <mask> of is chief executive'
+pprint(masked_language_model(text))
 
+# Exercise: Write a function that automatically masks and replaces words
+# In a whole document. Might choose which words to replace based on statistic for example TF-IDF
