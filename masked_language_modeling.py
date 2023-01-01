@@ -57,3 +57,8 @@ def mask_and_replace_words(document: str, mask_char: str) -> str:
     masked_document = ' '.join(masked_tokens)
     
     return masked_document
+
+# Test the function with a sample document
+document = "Shares in train and plane-making giant Bombardier have fallen to 10 year low following the departure of is chief executive"
+masked_document = mask_and_replace_words(document, '<mask>')
+print(masked_document)
